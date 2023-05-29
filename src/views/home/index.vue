@@ -1,7 +1,5 @@
 <template>
-  <div class="">
-    <router-view></router-view>
-  </div>
+  <div class="">home组件</div>
 </template>
 
 <script setup lang="ts">
