@@ -4,7 +4,7 @@
     <!-- 左侧菜单 -->
     <div class="left_slider">
       <h1 class="logo_title">XXXXX管理平台</h1>
-      <el-menu router>
+      <el-menu router :default-active="$route.path">
         <myMenu :menuList="userStore.menuRoutes"></myMenu>
       </el-menu>
     </div>
@@ -23,11 +23,13 @@
 </template>
 
 <script setup lang="ts">
+import { useRoute } from "vue-router";
 // 引入菜单组件
 import myMenu from "./menu/index.vue";
 // 获取用户相关的小仓库，从pinia中可以看到menuRoutes数据，动态生成菜单栏
 import useUserStore from "@/store/modules/user";
 let userStore = useUserStore();
+let $route = useRoute();
 </script>
 
 <style lang="scss" scoped>
