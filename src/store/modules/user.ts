@@ -4,13 +4,16 @@ import { defineStore } from "pinia";
 import { reqLogin } from "@/api/user";
 // 引入数据类型
 import type { loginForm } from "@/api/user/type";
+// 引入路由（常量路由）
+import { constantRoute } from "@/router/routes";
 
 
 const useUserStore = defineStore('User', {
   // 存储数据
   state: () => {
     return {
-      token: localStorage.getItem("TOKEN")
+      token: localStorage.getItem("TOKEN"), //用户唯一标识token
+      menuRoutes: constantRoute, //仓库存储生成带单数组
     }
   },
   // 处理异步/逻辑

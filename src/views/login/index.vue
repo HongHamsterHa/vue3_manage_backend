@@ -49,8 +49,16 @@ let loginForms = ref();
 // 表单校验规则
 const rules = reactive<FormRules>({
   username: [{ required: true, message: "账号不能为空", trigger: "blur" }],
-  password: [{ required: true, message: "密码不能为空", trigger: "blur" }],
+  password: [
+    { required: true, message: "密码不能为空", trigger: "blur" },
+    // 自定义校验规则
+    // {trigger:'change',validator:validatorTest}
+  ],
 });
+
+// const validatorTest = (rule:any,value:any,callback:any) => {
+//   xxxxx
+// }
 
 // 点击登陆按钮事件
 const login = async () => {

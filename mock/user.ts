@@ -4,7 +4,7 @@ function createUserList() {
     {
       userId: 1,
       username: 'admin',
-      password: '1111',
+      password: '123456',
       desc: '平台管理员',
       roles: ['平台管理员'],
       routes: ['home'],
