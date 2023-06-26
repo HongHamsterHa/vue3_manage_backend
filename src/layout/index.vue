@@ -4,14 +4,21 @@
     <!-- 左侧菜单 -->
     <div class="left_slider">
       <h1 class="logo_title">XXXXX管理平台</h1>
-      <el-menu>
+      <el-menu router>
         <myMenu :menuList="userStore.menuRoutes"></myMenu>
       </el-menu>
     </div>
     <!-- 顶部导航 -->
     <div class="top_tabbar"></div>
     <!-- 内容区域 -->
-    <div class="layout_main"></div>
+    <div class="layout_main">
+      <router-view v-slot="{ Component }">
+        <transition name="fade">
+          <!-- 添加切换特效，不需要的话将transition和v-slot去掉即可 -->
+          <component :is="Component"></component>
+        </transition>
+      </router-view>
+    </div>
   </div>
 </template>
 
@@ -59,5 +66,15 @@ let userStore = useUserStore();
     padding: 20px;
     overflow: hidden;
   }
+}
+// 路由切换特效
+.fade-enter-from {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: all 1s;
+}
+
+.fade-enter-to {
 }
 </style>

@@ -1,4 +1,5 @@
 export const constantRoute = [
+  // 登陆
   {
     path: '/login',
     component: () => import('@/views/login/index.vue'),
@@ -8,6 +9,7 @@ export const constantRoute = [
       hidden: true
     }
   },
+  // 一级路由
   {
     path: '/',
     component: () => import('@/layout/index.vue'),
@@ -27,16 +29,53 @@ export const constantRoute = [
           hidden: false,
           icon: 'House'
         }
-      },
-      {
-        path: '/ceshi',
-        component: () => import('@/views/home/index.vue'),
-        meta: {
-          title: 'ceshi'
-        }
       }
     ]
   },
+  // 权限管理
+  {
+    path: '/authority',
+    component: () => import('@/layout/index.vue'),
+    name: 'authority',
+    meta: {
+      title: '权限管理',
+      hidden: false,
+      icon: 'Lock'
+    },
+    children: [
+      {
+        path: '/authority/user',
+        component: () => import('@/views/authority/user/index.vue'),
+        name: 'user',
+        meta: {
+          title: '用户管理',
+          hidden: false,
+          icon: 'User'
+        }
+      },
+      {
+        path: '/authority/role',
+        component: () => import('@/views/authority/role/index.vue'),
+        name: 'role',
+        meta: {
+          title: '角色管理',
+          hidden: false,
+          icon: 'UserFilled'
+        }
+      },
+      {
+        path: '/authority/menu',
+        component: () => import('@/views/authority/menu/index.vue'),
+        name: 'menu',
+        meta: {
+          title: '菜单管理',
+          hidden: false,
+          icon: 'Menu'
+        }
+      },
+    ]
+  },
+  // 404页面
   {
     path: '/404',
     component: () => import('@/views/unfound/index.vue'),

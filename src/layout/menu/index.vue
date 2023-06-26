@@ -5,7 +5,7 @@
       <el-menu-item
         v-if="!item.meta.hidden"
         :index="item.path"
-        @click="goRoute"
+        :route="item.path"
       >
         <template #title>
           <el-icon>
@@ -20,6 +20,7 @@
       <el-menu-item
         v-if="!item.children[0].meta.hidden"
         :index="item.children[0].path"
+        :route="item.children[0].path"
       >
         <template #title>
           <el-icon>
@@ -33,6 +34,7 @@
     <el-sub-menu
       v-if="item.children && item.children.length > 1"
       :index="item.path"
+      :route="item.path"
     >
       <template #title>
         <el-icon>
@@ -46,12 +48,17 @@
 </template>
 
 <script setup lang="ts">
+// import { useRouter } from "vue-router";
+// let $router = useRouter();
+
 // 获取父组件传递的菜单数组
 defineProps(["menuList"]);
 // 点击菜单跳转
-const goRoute = (vc: any) => {
-  console.log(vc.index);
-};
+// const goRoute = (vc: any) => {
+//   console.log(vc.index);
+//   // 路由跳转
+//   // $router.push(vc.index);
+// };
 </script>
 <script lang="ts">
 export default {
