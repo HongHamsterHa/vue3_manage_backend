@@ -48,17 +48,7 @@
 </template>
 
 <script setup lang="ts">
-// import { useRouter } from "vue-router";
-// let $router = useRouter();
-
-// 获取父组件传递的菜单数组
 defineProps(["menuList"]);
-// 点击菜单跳转
-// const goRoute = (vc: any) => {
-//   console.log(vc.index);
-//   // 路由跳转
-//   // $router.push(vc.index);
-// };
 </script>
 <script lang="ts">
 export default {
@@ -68,4 +58,18 @@ export default {
 
 
 <style lang="scss" scoped>
+.el-menu-item {
+  margin: 10px 0;
+}
+.el-menu-item.is-active {
+  background-color: #030303;
+  color: #fff;
+  border-radius: 15px;
+}
+.el-menu-item:hover {
+  transition: background-color 0.3s ease;
+  background-color: #bebebe;
+  color: #fff;
+  border-radius: 15px;
+}
 </style>
